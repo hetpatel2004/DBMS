@@ -1,0 +1,48 @@
+(create db ,create table ,insert,alter(add ,change ,drop),update) 
+
+CREATE DATABASE first_db;
+
+CREATE TABLE julyten(userid int,usrename varchar(50),email varchar(50))
+
+INSERT INTO julyten VALUES(1,'het',het@123)
+
+INSERT INTO julyten VALUES(2,'kavy',kavy@123),(3,'harsh',harsh@123),(4,'kunal',kunal@123)
+
+SELECT * FROM julyten;
+
+UPDATE julyten set email="somthing"
+
+UPDATE julyten set email="het@123" WHERE userid="1" 
+
+UPDATE julyten set email="kavy@123" WHERE userid="2" 
+
+UPDATE julyten set email="harsh@123" WHERE userid="3" 
+
+ALTER TABLE julyten ADD (mobilenumberree int,addres varchar(50))
+
+ALTER TABLE julyten CHANGE mobilenumberree mobile varchar(50);
+
+ALTER TABLE julyten CHANGE mobile mobilee varchar(50);
+
+ALTER TABLE julyten CHANGE mobilee   mobile varchar(50);
+
+DELETE FROM julyten WHERE userid=4;
+
+ALTER TABLE julyten DROP addres;
+
+ALTER TABLE julyten DROP mobile;
+
+ALTER TABLE julyten ADD addres varchar(50);
+
+ALTER TABLE julyten ADD (age int,gendar varchar(50)); 
+
+INSERT INTO julyten (`userid`,`usrename`,`email`,`addres`,`age`,`gendre`) VALUES ('1','het','het@123','add','21','male');
+
+DELETE FROM julyten WHERE userid='1';
+DELETE FROM julyten WHERE userid='2';
+DELETE FROM julyten WHERE userid='3';
+
+
+INSERT INTO julyten (`userid`,`usrename`,`email`,`addres`,`age`,`gendre`) VALUES('1','het','het@123','addres1','21','male');
+
+INSERT INTO julyten (`userid`,`usrename`,`email`,`addres`,`age`,`gendre`) VALUES('2','kavy','kavy@123','addres2','22','male'),('3','abc','abc@123','addres3','20','female'),('4','defg','defg@123','addres4','22','male'),('5','hij','hij@123','addres5','22','female'),('6','klm','klm@123','addres6','20','female'),('7','radha','radha@123','addres7','24','female');

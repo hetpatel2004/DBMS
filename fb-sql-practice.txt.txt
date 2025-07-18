@@ -1,0 +1,43 @@
+CREATE DATABASE het;
+-----------------------------------------------------------------------------------------------------------------------------------------------data base--------------------------------
+CREATE TABLE EmployeeDetails(Empid int PRIMARY KEY,FullName varchar(50), Managerid int, Dateofjoining date , city varchar(50));
+
+
+insert into employeedetails (`Empid`, `FullName`,`Managerid`, `Dateofjoining`, `city`) VALUES ('121','john snow','321','01-31-2019', 'toronto');
+
+insert into employeedetails (`Empid`, `FullName`,`Managerid`, `Dateofjoining`, `city`) VALUES ('321','walter white','986','01-30-2020','california')
+											     ,('421','kuldeep rana','876','27-11-2021', 'new delhi');
+
+-----------------------------------------------------------------------------------------------------------------------------------------------tableone-------------------------------
+
+CREATE TABLE employeesalary(empid int,project varchar(50),Salary int,variable int,FOREIGN KEY (empid) REFERENCES employeedetails(empid));
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------tabletwo-------------------------------------
+
+UPDATE employeedetails set Dateofjoining= 2019-31-19 WHERE Empid=321;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------updatetask-----------------------------------
+SELECT Empid,FullName from employeedetails WHERE Managerid = '876';
+
+SELECT * FROM employeesalary where project='p1';
+
+SELECT Empid,city,Managerid FROM employeedetails WHERE city='toronto'AND Managerid='321';
+------------------------------------------------------------------------------------------------------------------------------------------------selecttask----------------------------------
+SELECT distinct project FROM employeesalary;
+------------------------------------------------------------------------------------------------------------------------------------------------selectdistinct------------------------------
+SELECT max(Salary), min(Salary) FROM employeesalary;
+-------------------------------------------------------------------------------------------------------------------------------------------------maximum and minimum--------------------------
+SELECT empid,Salary FROM employeesalary WHERE Salary BETWEEN 9000 AND 15000;
+-------------------------------------------------------------------------------------------------------------------------------------------------Between-----------------------------------
+SELECT Empid ,city,Managerid FROM employeedetails WHERE city= 'california' or Managerid='321';
+-------------------------------------------------------------------------------------------------------------------------------------------------Or----------------------------------------
+SELECT * FROM employeesalary WHERE project != 'p1';
+SELECT * FROM employeesalary WHERE project= 'p1';
+-------------------------------------------------------------------------------------------------------------------------------------------------! & not----------------------------------
+SELECT empid FROM employeedetails
+UNION
+SELECT empid FROM employeesalary;
+-------------------------------------------------------------------------------------------------------------------------------------------------union-------------------------------------
+SELECT * ,Salary+variable as total_salary FROM employeesalary;
+-----------------------------------------------------------------------------------------------------------------------------------------------sum(+)--------------------------------------

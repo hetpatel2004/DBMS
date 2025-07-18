@@ -1,0 +1,16 @@
+CREATE DATABASE RIDEON_RENTAL_CARS;
+-------------------------------------------------------------------------------
+CREATE TABLE Vehicles(vehicle_id int PRIMARY KEY, brand varchar(20), car_name varchar(20), purchasing_year year , type_of_car varchar(50), number_plate varchar(20), status varchar(20), price_per_day decimal);
+-------------------------------------------------------------------------------
+create table customers (customers_id int primary KEY, name varchar(20), email varchar(50), phone_number varchar(20), dl_no varchar(30),address varchar(30));
+-------------------------------------------------------------------------------
+create table rentals(rental_id int primary key, customer_id int NOT null,vehicle_id int NOT null,return_date date not null, status varchar(20)
+, foreign key (customer_id) REFERENCES customers(customers_id)
+,,foreign key (vehicle_id) REFERENCES vehicles(vehicle_id) ,rental_date date NOT null );
+-------------------------------------------------------------------------------
+create table  payments (payment_id int primary key,rental_id int NOT null, payment_date date not null ,amount decimal not null,payment_methord varchar(10) not null
+                       ,foreign key (rental_id) references rentals(rental_id));
+-------------------------------------------------------------------------------
+create table maintenance_records(maintenance_id int primary key,vehicle_id int not null,service_date date not null,description text, cost decimal not null
+                                ,foreign key (vehicle_id) REFERENCES vehicles(vehicle_id));
+--------------------------------------------------------------------------------
